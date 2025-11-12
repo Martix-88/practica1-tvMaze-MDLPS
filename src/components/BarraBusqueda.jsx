@@ -1,4 +1,3 @@
-import { useState } from 'react';
 import { useForm } from 'react-hook-form';
 
 export default function BarraBusqueda({ onSearch }) {
@@ -12,13 +11,16 @@ export default function BarraBusqueda({ onSearch }) {
     }
 
     return (
-        <form onSubmit={handleSubmit(onSubmit)}>
+        <form onSubmit={handleSubmit(onSubmit)} className="search-form">
             <input
                 {...register('search')}
                 type="text"
                 placeholder="Buscar serie..."
+                className="search-input"
             ></input>
-            <button type="submit">Search</button>
+            <button type="submit" className="search-button">
+                Search
+            </button>
         </form>
     );
 }
