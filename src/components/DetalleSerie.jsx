@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useRef } from 'react';
 
 export default function DetalleSerie({
     serieId,
@@ -7,6 +7,7 @@ export default function DetalleSerie({
     esFavorito,
 }) {
     const [detalle, setDetalle] = useState(null);
+    const dialogRef = useRef(null);
 
     useEffect(() => {
         if (serieId) {
@@ -16,30 +17,50 @@ export default function DetalleSerie({
         }
     }, [serieId]);
 
+    useEffect(() => {
+        if (detalle && dialogRef.current) {
+            dialogRef.current.showModal();
+        }
+    }, [detalle]);
+
+    const handleClose = () => {
+        if (dialogRef.current) {
+            dialogRef.current.close();
+            onClose();
+            setDetalle(null);
+        }
+    };
+
     if (!detalle) return null;
 
     return (
-        <div className="modal-serie" onClick={onClose}>
-            <div className="contenido">
+        <dialog ref={dialogRef} className="detalle-dialog">
+            <form method="dialog">
                 <img
                     src={detalle.image.original}
                     alt={detalle.name}
-                    className="imagen"
+                    className="modal-imagen"
                 />
-                <h2 className="titulo">{detalle.name}</h2>
-                <p>Generos: {detalle.genres.join(', ')}</p>
-
+                <h2>{detalle.name}</h2>
+                <p>
+                    <strong>Géneros:</strong> {detalle.genres.join(', ')}
+                </p>
                 <button
-                    className="boton-fav"
+                    type="button"
                     onClick={() => onToggleFavorite(detalle)}
+                    className={esFavorito ? 'btn-fav-quitar' : 'btn-fav-añadir'}
                 >
                     {esFavorito ? 'Quitar de favoritos' : 'Añadir a favoritos'}
                 </button>
 
-                <button className="boton-cerrar" onClick={onClose}>
+                <button
+                    type="button"
+                    onClick={handleClose}
+                    className="btn-cerrar"
+                >
                     Cerrar
                 </button>
-            </div>
-        </div>
+            </form>
+        </dialog>
     );
 }
