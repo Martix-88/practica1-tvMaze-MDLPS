@@ -18,7 +18,7 @@ export default function BarraBusqueda({ onSearch }) {
                 placeholder="Buscar serie..."
                 className="search-input"
             ></input>
-            <button type="submit" className="search-button">
+            <button type="submit" className="search-boton">
                 Buscar
             </button>
         </form>
