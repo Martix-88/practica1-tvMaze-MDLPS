@@ -12,6 +12,8 @@ export default function ItemSerie({
         imagenAPI = serie.image.medium;
     }
 
+    const buttonClass = esFavorito ? 'btn-fav-remove' : 'btn-fav-add';
+
     return (
         <div className="serie-item">
             <div
