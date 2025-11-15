@@ -41,7 +41,7 @@
     color: #888;
 }
 
-/* GENERAL */
+/* ###### GENERAL ###### */
 body {
     font-family: Arial, sans-serif;
     background-color: #161629;
@@ -59,7 +59,7 @@ body {
     color: #6289cd;
 }
 
-/* BARRA DE BUSQUEDA */
+/* ###### BARRA DE BUSQUEDA ###### */
 .search-form {
     display: flex;
     justify-content: center;
@@ -87,13 +87,113 @@ body {
     background-color: #0056b3;
 }
 
-/* LISTA DE SERIES / FAVORITOS */
+/* ###### LISTA DE SERIES / FAVORITOS ###### */
 .show-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
     gap: 15px;
 }
 
-/* SECCIONES */
+.serie-item {
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
 
-/* MODAL DETALLE */
+.serie-image-container {
+    cursor: pointer;
+    width: 100%;
+}
+
+.serie-image {
+    width: 100%;
+    display: block;
+}
+
+.no-image-name {
+    font-weight: bold;
+}
+
+.serie-info {
+    padding: 10px;
+}
+
+.serie-name {
+    font-size: 16px;
+    margin: 0 0 10px 0;
+}
+
+/* Botones favoritos */
+.btn-fav-añadir {
+    padding: 6px 12px;
+    border-radius: 5px;
+    border: none;
+    background-color: #272f8d;
+    color: white;
+    cursor: pointer;
+}
+
+.btn-fav-quitar {
+    padding: 6px 12px;
+    border-radius: 5px;
+    border: none;
+    background-color: #203f55;
+    color: white;
+    cursor: pointer;
+}
+
+/* Botón de cerrar */
+.btn-cerrar {
+    padding: 8px 15px;
+    border-radius: 5px;
+    border: none;
+    background-color: #4e5153;
+    color: white;
+    cursor: pointer;
+}
+
+/* ###### SECCIONES ###### */
+.seccion-titulo {
+    text-align: left;
+    margin: 20px 0 10px 10px;
+    color: #e8e6e6;
+}
+
+.mensaje-centro {
+    text-align: center;
+    color: #666;
+    font-style: italic;
+}
+
+.seccion-facvoritos,
+.seccion-series {
+    margin-bottom: 30px;
+}
+
+/* ###### DETALLE ###### */
+.detalle-dialog {
+    border: none;
+    border-radius: 10px;
+    padding: 20px;
+    width: 90%;
+    max-width: 500px;
+    max-height: 90%;
+    overflow-y: auto;
+}
+
+.detalle-dialog::backdrop {
+    background: rgba(0, 0, 0, 0.6);
+}
+
+.modal-imagen {
+    width: 100%;
+    border-radius: 10px;
+    margin-bottom: 15px;
+}
+
+.modal-summary {
+    text-align: left;
+    margin: 15px 0;
+    line-height: 1.5;
+}
