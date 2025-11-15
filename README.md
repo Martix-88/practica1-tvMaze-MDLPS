@@ -3,7 +3,7 @@
 Lo empleado en esta práctica ha sido
 - React (Hooks)
 - HTML5
-- La API de TVMaze provista en la práctica [https://www.tvmaze.com/api]
+- La API de TVMaze provista en el enunciado de la práctica [https://www.tvmaze.com/api]
 
 ## Funcionalidades
 
