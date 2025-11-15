@@ -29,7 +29,7 @@ export default function ItemSerie({
                     />
                 ) : (
                     // Muestra el placeholder de texto si no hay imagen
-                    <div className="no-image-placeholder">
+                    <div>
                         <span className="no-image-text">
                             IMAGEN NO DISPONIBLE
                         </span>
