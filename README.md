@@ -14,6 +14,7 @@ Lo empleado en esta práctica ha sido
 
 ## Estructura del proyecto
 
+```bash
 src/
 ├── components/
 │   ├── BarraBusqueda.jsx
@@ -24,6 +25,7 @@ src/
 ├── App.jsx
 ├── App.css
 └── main.jsx
+```
 
 ## Notas
 El node_modules no se incluyen (están dentro del .gitignore)
