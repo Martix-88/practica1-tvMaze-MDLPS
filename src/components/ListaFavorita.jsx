@@ -9,7 +9,7 @@ export default function ListaFavorita({
         <div className="seccion-facvoritos">
             <h2 className="seccion-titulo">FAVORITOS</h2>
 
-            {favoritos.lenght === 0 ? (
+            {favoritos.length === 0 ? (
                 <p className="mensaje-centro mensaje-favoritos-vacio">
                     No tienes series favoritas aun
                 </p>

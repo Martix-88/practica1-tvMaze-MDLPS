@@ -19,7 +19,7 @@ export default function BarraBusqueda({ onSearch }) {
                 className="search-input"
             ></input>
             <button type="submit" className="search-button">
-                Search
+                Buscar
             </button>
         </form>
     );
