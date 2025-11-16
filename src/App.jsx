@@ -45,7 +45,7 @@ function App() {
             <ListaFavorita
                 favoritos={favoritos}
                 onToggleFavorite={toggleFavorite}
-                onViewDetails={setSerieSeleccionada}
+                onViewDetails={(serie) => setSerieSeleccionada(serie)}
             />
 
             {/* Resultados */}
@@ -53,7 +53,7 @@ function App() {
                 series={series}
                 favoritos={favoritos}
                 onToggleFavorite={toggleFavorite}
-                onViewDetails={setSerieSeleccionada}
+                onViewDetails={(serie) => setSerieSeleccionada(serie)}
             />
 
             {/* Detalle de la serie */}
