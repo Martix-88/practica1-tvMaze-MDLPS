@@ -15,9 +15,9 @@ export default function ListaSeries({
             ) : (
                 <div className="show-grid">
                     {series.map((item) => {
-                        const serie = item.show ? item.show : item;
+                        const serie = item.show ? item.show : item; //
                         const esFavorito = favoritos.some(
-                            (f) => f.id === serie.id
+                            (f) => f.id === serie.id // Compruebo que la serie está en favoritos
                         );
 
                         return (

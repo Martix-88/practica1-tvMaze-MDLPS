@@ -15,17 +15,19 @@ export default function DetalleSerie({
                 .then((resultado) => resultado.json())
                 .then((data) => {
                     setDetalle(data);
-                    setAbierto(true);
+                    setAbierto(true); // Abro el dialog con el detalle de la serie
                 });
         }
     }, [serieId]);
 
+    // Funcion para el cierre del dialog
     const handleClose = () => {
         setAbierto(false);
         setDetalle(null);
         onClose();
     };
 
+    // Si no hay detalle o no está abierto el dialog entonces no muestra nada
     if (!abierto || !detalle) return null;
 
     return (

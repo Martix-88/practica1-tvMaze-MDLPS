@@ -19,7 +19,7 @@ export default function ListaFavorita({
                         <ItemSerie
                             key={serie.id}
                             serie={serie}
-                            esFavorito={true}
+                            esFavorito={true} // Las series siempre son favoritas en el caso de esta lista
                             onToggleFavorite={onToggleFavorite}
                             onViewDetails={onViewDetails}
                         />

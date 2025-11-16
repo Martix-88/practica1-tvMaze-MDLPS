@@ -4,6 +4,7 @@ export default function ItemSerie({
     onToggleFavorite,
     onViewDetails,
 }) {
+    // Compruebo que la serie tiene imagen
     let tieneImagen = false;
     let imagenAPI = '';
 
@@ -28,7 +29,7 @@ export default function ItemSerie({
                         className="serie-image"
                     />
                 ) : (
-                    // Muestra el placeholder de texto si no hay imagen
+                    // Muestra el texto alternativo en caso de que no haya imagen
                     <div>
                         <span className="no-image-text">
                             IMAGEN NO DISPONIBLE
