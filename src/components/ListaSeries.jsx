@@ -10,7 +10,7 @@ export default function ListaSeries({
         <div className="seccion-series">
             <h2 className="seccion-titulo">Resultados de la busqueda</h2>
 
-            {series.lenght === 0 ? (
+            {series.length === 0 ? (
                 <p>No hay resultados</p>
             ) : (
                 <div className="show-grid">
