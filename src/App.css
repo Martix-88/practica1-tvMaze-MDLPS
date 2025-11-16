@@ -197,3 +197,62 @@ body {
     margin: 15px 0;
     line-height: 1.5;
 }
+
+/* Caja del modal */
+.detalle-dialog {
+    padding: 20px;
+    border: none;
+    border-radius: 10px;
+    max-width: 500px;
+    width: 90%;
+    text-align: center;
+
+    /* Quita márgenes automáticos que desalinean el modal */
+    margin: 0;
+
+    /* Centrado perfecto como una ventana emergente */
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    background: rgb(32, 38, 69);
+}
+
+/* Imagen dentro del modal */
+.modal-imagen {
+    width: 100%;
+    border-radius: 10px;
+    margin-bottom: 10px;
+}
+
+/* Botón cerrar */
+.btn-cerrar {
+    margin-top: 15px;
+    padding: 8px 12px;
+    background: rgb(230, 77, 77);
+    border: none;
+    border-radius: 5px;
+    color: white;
+    cursor: pointer;
+}
+
+/* Botón favorito */
+.btn-fav-añadir,
+.btn-fav-quitar {
+    margin-top: 10px;
+    padding: 8px 12px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.btn-fav-añadir {
+    background: rgb(59, 142, 255);
+    color: white;
+}
+
+.btn-fav-quitar {
+    background: rgb(255, 172, 48);
+    color: white;
+}
