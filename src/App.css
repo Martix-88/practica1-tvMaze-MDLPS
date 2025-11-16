@@ -90,7 +90,7 @@ body {
 /* ###### LISTA DE SERIES / FAVORITOS ###### */
 .show-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    grid-template-columns: repeat(5, 1fr); /* 3 columnas iguales */
     gap: 15px;
 }
 
