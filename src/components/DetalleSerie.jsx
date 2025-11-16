@@ -1,4 +1,4 @@
-import { useEffect, useState, useRef } from 'react';
+import { useEffect, useState } from 'react';
 
 export default function DetalleSerie({
     serieId,
@@ -7,34 +7,29 @@ export default function DetalleSerie({
     esFavorito,
 }) {
     const [detalle, setDetalle] = useState(null);
-    const dialogRef = useRef(null);
+    const [abierto, setAbierto] = useState(false);
 
     useEffect(() => {
         if (serieId) {
             fetch(`https://api.tvmaze.com/shows/${serieId}`)
                 .then((resultado) => resultado.json())
-                .then((data) => setDetalle(data));
+                .then((data) => {
+                    setDetalle(data);
+                    setAbierto(true);
+                });
         }
     }, [serieId]);
 
-    useEffect(() => {
-        if (detalle && dialogRef.current) {
-            dialogRef.current.showModal();
-        }
-    }, [detalle]);
-
     const handleClose = () => {
-        if (dialogRef.current) {
-            dialogRef.current.close();
-            onClose();
-            setDetalle(null);
-        }
+        setAbierto(false);
+        setDetalle(null);
+        onClose();
     };
 
-    if (!detalle) return null;
+    if (!abierto || !detalle) return null;
 
     return (
-        <dialog ref={dialogRef} className="detalle-dialog">
+        <dialog open className="detalle-dialog">
             <form method="dialog">
                 <img
                     src={detalle.image.original}
