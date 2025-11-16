@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import './App.css';
 
 import BarraBusqueda from './components/BarraBusqueda.jsx';
@@ -8,28 +8,40 @@ import ListaFavorita from './components/ListaFavorita.jsx';
 
 function App() {
     const [series, setSeries] = useState([]); // Resultados de la búsqueda
-    const [serieSeleccionada, setSerieSeleccionada] = useState(null);
-    const [favoritos, setFavoritos] = useState([]);
+    const [serieSeleccionada, setSerieSeleccionada] = useState(null); // Estado para guardar la serie seleccionada
+
+    // Cargo los favoritos desde el localStorage si hay datos
+    const [favoritos, setFavoritos] = useState(() => {
+        const guardados = localStorage.getItem('misFavoritos');
+        return guardados ? JSON.parse(guardados) : [];
+    });
+
+    // Guarda la lista de favoritos dentro del localStorage, si se recarga la página los favoritos no se pierden
+    useEffect(() => {
+        localStorage.setItem('misFavoritos', JSON.stringify(favoritos));
+    }, [favoritos]);
 
     //Busco en la API de TV Maze
-    const handleSearch = async (texto) => {
-        if (!texto || texto === '') return;
+    const handleSearch = (texto) => {
+        if (!texto || texto === '') return; // Si no hay texto no hago nada
 
-        const res = await fetch(
-            `https://api.tvmaze.com/search/shows?q=${texto}`
-        );
-        const data = await res.json();
-
-        setSeries(data.map((item) => item.show));
+        // Hago la petición con fetch
+        fetch(`https://api.tvmaze.com/search/shows?q=${texto}`)
+            .then((resultado) => resultado.json())
+            .then((data) => {
+                setSeries(data.map((item) => item.show));
+            });
     };
 
     //Añadir o quitar un favorito
     const toggleFavorite = (serie) => {
-        const existe = favoritos.some((fav) => fav.id === serie.id);
+        const existe = favoritos.some((fav) => fav.id === serie.id); // Comprueba que la serie ya está en favoritos con some para que devuelva el booleano
 
         if (existe) {
+            // Si la serie ya está en favoritos se quita
             setFavoritos(favoritos.filter((fav) => fav.id !== serie.id));
         } else {
+            // Sino se añade
             setFavoritos([...favoritos, serie]);
         }
     };
